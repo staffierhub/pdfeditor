@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { AssetRecordType, Box, TLAssetId, TLShapeId, createShapeId } from 'tldraw'
-import tldrawPdf from './assets/tldraw.pdf'
+import tldrawPdf from 'https://github.com/staffierhub/pdfeditor/blob/8a76e6895a354e3598cb2291c897128f490ec6eb/example.pdf'
 
 export interface PdfPage {
 	src: string
@@ -100,7 +100,7 @@ export function PdfPicker({ onOpenPdf }: { onOpenPdf(pdf: Pdf): void }) {
 		setIsLoading(true)
 		try {
 			const result = await fetch(tldrawPdf)
-			const pdf = await loadPdf('tldraw.pdf', await result.arrayBuffer())
+			const pdf = await loadPdf('example.pdf', await result.arrayBuffer())
 			onOpenPdf(pdf)
 		} finally {
 			setIsLoading(false)
